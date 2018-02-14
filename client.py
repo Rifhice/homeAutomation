@@ -4,7 +4,7 @@
 import socket
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-port = int(raw_input("Entrez le port d'ecoute : "))
+port = int(raw_input("Entrez le port : "))
 s.connect(("", port))
 
 print("Ecrivez votre message :")

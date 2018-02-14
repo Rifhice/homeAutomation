@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-
+import os
 import socket
 import threading
 import errno
@@ -43,6 +43,7 @@ class ClientThread(threading.Thread):
                         result = self.setLights(False)
                     elif(command == "isHome"):
                         result = self.setHome(True)
+			os.system("python script.py")
                     elif(command == "isNotHome"):
                         result = self.setHome(False)
                     elif(command == "say"):
@@ -156,7 +157,7 @@ class ClientThread(threading.Thread):
 port = int(raw_input("Entrez le port d'ecoute : "))
 tcpsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcpsock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-tcpsock.bind(("",port))
+tcpsock.bind(("127.0.0.1",port))
 
 while True:
     tcpsock.listen(10)
